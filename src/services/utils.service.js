@@ -1,5 +1,6 @@
 export const isImageUrl = link => {
-  return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))/i.test(link);
+  return /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))/i.test(link)
+    || /https?:\/\/scontent\-.+/i.test(link);
 };
 
 export const isUrl = link => {

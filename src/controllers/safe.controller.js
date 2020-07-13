@@ -7,7 +7,7 @@ export default async (req, res) => {
 
   try {
     const body = req.body;
-    console.log(body);
+    // console.log(body);
 
     if (!body.text) return;
 

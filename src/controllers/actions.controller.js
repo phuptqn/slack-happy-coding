@@ -6,7 +6,7 @@ export default async (req, res) => {
 
   try {
     const body = req.body;
-    console.log(body);
+    // console.log(body);
 
     const requested = await actions[body.actions[0].action_id](body);
     logRequest(requested);

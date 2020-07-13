@@ -9,7 +9,7 @@ export default async (req, res) => {
 
   try {
     const body = req.body;
-    console.log(body);
+    // console.log(body);
 
     const daolyRand = getRandomInt(daolycun.length - 1);
     const authorsRand = getRandomInt(authors.length - 1);
