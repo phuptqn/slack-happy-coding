@@ -13,6 +13,4 @@ router.post('/safe', controllerSafe);
 router.post('/daolycun', controllerDaoLyCun);
 router.post('/actions', controllerActions);
 
-router.get('/', (req, res) => res.send('app works!'));
-
 export default router;

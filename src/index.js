@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 app.use('/slack', router);
 
+app.get('/', (req, res) => res.send('<pre>app works!</pre>'));
+
 app.listen(process.env.PORT || 3000, () => {
   console.log('Happy coding!');
 })
