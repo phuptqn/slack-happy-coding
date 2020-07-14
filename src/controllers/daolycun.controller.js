@@ -11,8 +11,19 @@ export default async (req, res) => {
     const body = req.body;
     // console.log(body);
 
-    const daolyRand = getRandomInt(daolycun.length - 1);
-    const authorsRand = getRandomInt(authors.length - 1);
+    let daoly;
+    let author;
+    if (body.text) {
+      const patt = /(^.+)(\-\-author=)(.+$)/;
+      if (patt.test(body.text)) {
+        daoly = body.text.replace(patt, '$1');
+        author = body.text.replace(patt, '$3');
+      }
+    }
+    if (!daoly) {
+      daoly = daolycun[ getRandomInt(daolycun.length - 1) ].body;
+      author = authors[ getRandomInt(authors.length - 1) ];
+    }
 
     const blocks = [
       {
@@ -26,7 +37,7 @@ export default async (req, res) => {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `\`\`\`${daolycun[daolyRand].body}\n\n* ${authors[authorsRand]} *\`\`\``
+          text: `\`\`\`${daoly}\n\n* ${author} *\`\`\``
         },
       },
     ];
